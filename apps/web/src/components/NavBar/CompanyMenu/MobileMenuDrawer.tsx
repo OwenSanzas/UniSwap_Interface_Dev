@@ -11,7 +11,7 @@ import { PreferenceSettings } from 'components/NavBar/PreferencesMenu/Preference
 import { PreferencesView } from 'components/NavBar/PreferencesMenu/shared'
 import { useTabsContent } from 'components/NavBar/Tabs/TabsContent'
 import styled, { useTheme } from 'lib/styled-components'
-import { Socials } from 'pages/Landing/sections/Footer'
+// import { Socials } from 'pages/Landing/sections/Footer'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { ChevronDown } from 'react-feather'
 import { useTranslation } from 'react-i18next'
@@ -135,8 +135,9 @@ export function MobileMenuDrawer({ isOpen, closeMenu }: { isOpen: boolean; close
                 <PreferenceSettings showHeader={false} setSettingsView={changeView} />
               </MenuSection>
 
-              <DownloadApp onClick={closeMenu} />
-              <Socials iconSize="25px" />
+              {/* <DownloadApp onClick={closeMenu} /> */}
+              <DownloadApp/>
+              {/* <Socials iconSize="25px" /> */}
             </Column>
           </Accordion>
 

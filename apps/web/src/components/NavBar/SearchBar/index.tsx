@@ -229,72 +229,79 @@ export const SearchBar = ({
 
   const placeholderText = shouldDisableNFTRoutes ? t('common.searchTokens') : t('common.searchTokensNFT')
 
+  // return (
+  //   <Trace section={InterfaceSectionName.NAVBAR_SEARCH}>
+  //     <Anchor $fullScreen={fullScreen}>
+  //       <SearchContainer
+  //         ref={searchRef}
+  //         $isOpen={isOpen}
+  //         $collapsed={!isNavSearchInputVisible}
+  //         $maxHeight={maxHeight}
+  //         $isDropdown={isDropdown}
+  //         $fullScreen={fullScreen}
+  //       >
+  //         {(!!isNavSearchInputVisible || isOpen) && (
+  //           <SearchInput $isOpen={isOpen} $fullScreen={fullScreen}>
+  //             <SearchIcon>
+  //               <Search width="20px" height="20px" color={theme.neutral2} />
+  //             </SearchIcon>
+  //             <Trace
+  //               logFocus
+  //               eventOnTrigger={InterfaceEventName.NAVBAR_SEARCH_SELECTED}
+  //               element={InterfaceElementName.NAVBAR_SEARCH_INPUT}
+  //               properties={{ ...trace }}
+  //             >
+  //               <Input
+  //                 ref={inputRef}
+  //                 data-cy="search-bar-input"
+  //                 width="100%"
+  //                 height="100%"
+  //                 backgroundColor="$transparent"
+  //                 placeholder={placeholderText}
+  //                 placeholderTextColor={theme.neutral2}
+  //                 onFocus={() => !isOpen && toggleOpen()}
+  //                 onChange={(event: any) => {
+  //                   !isOpen && toggleOpen()
+  //                   setSearchValue(event.target.value)
+  //                 }}
+  //                 onBlur={() =>
+  //                   sendAnalyticsEvent(InterfaceEventName.NAVBAR_SEARCH_EXITED, navbarSearchEventProperties)
+  //                 }
+  //                 value={searchValue}
+  //               />
+  //             </Trace>
+  //             {fullScreen && isOpen && <CloseIcon onClick={toggleOpen} />}
+  //             {!isOpen && <KeyShortcut>/</KeyShortcut>}
+  //           </SearchInput>
+  //         )}
+  //         {isOpen && (
+  //           <SearchBarDropdownContainer $isOpen={isOpen} $fullScreen={fullScreen}>
+  //             <SearchBarDropdown
+  //               toggleOpen={toggleOpen}
+  //               tokens={reducedTokens}
+  //               collections={reducedCollections}
+  //               queryText={debouncedSearchValue}
+  //               hasInput={debouncedSearchValue.length > 0}
+  //               isLoading={tokensAreLoading || collectionsAreLoading}
+  //             />
+  //           </SearchBarDropdownContainer>
+  //         )}
+  //       </SearchContainer>
+  //       {!isNavSearchInputVisible && (
+  //         <NavIcon onClick={toggleOpen} label={placeholderText}>
+  //           <SearchIcon>
+  //             <Search width="20px" height="20px" color={theme.neutral2} />
+  //           </SearchIcon>
+  //         </NavIcon>
+  //       )}
+  //     </Anchor>
+  //   </Trace>
+  // )
+
+  /*------------------- Reset Search Bar Component ------------------- */
   return (
-    <Trace section={InterfaceSectionName.NAVBAR_SEARCH}>
-      <Anchor $fullScreen={fullScreen}>
-        <SearchContainer
-          ref={searchRef}
-          $isOpen={isOpen}
-          $collapsed={!isNavSearchInputVisible}
-          $maxHeight={maxHeight}
-          $isDropdown={isDropdown}
-          $fullScreen={fullScreen}
-        >
-          {(!!isNavSearchInputVisible || isOpen) && (
-            <SearchInput $isOpen={isOpen} $fullScreen={fullScreen}>
-              <SearchIcon>
-                <Search width="20px" height="20px" color={theme.neutral2} />
-              </SearchIcon>
-              <Trace
-                logFocus
-                eventOnTrigger={InterfaceEventName.NAVBAR_SEARCH_SELECTED}
-                element={InterfaceElementName.NAVBAR_SEARCH_INPUT}
-                properties={{ ...trace }}
-              >
-                <Input
-                  ref={inputRef}
-                  data-cy="search-bar-input"
-                  width="100%"
-                  height="100%"
-                  backgroundColor="$transparent"
-                  placeholder={placeholderText}
-                  placeholderTextColor={theme.neutral2}
-                  onFocus={() => !isOpen && toggleOpen()}
-                  onChange={(event: any) => {
-                    !isOpen && toggleOpen()
-                    setSearchValue(event.target.value)
-                  }}
-                  onBlur={() =>
-                    sendAnalyticsEvent(InterfaceEventName.NAVBAR_SEARCH_EXITED, navbarSearchEventProperties)
-                  }
-                  value={searchValue}
-                />
-              </Trace>
-              {fullScreen && isOpen && <CloseIcon onClick={toggleOpen} />}
-              {!isOpen && <KeyShortcut>/</KeyShortcut>}
-            </SearchInput>
-          )}
-          {isOpen && (
-            <SearchBarDropdownContainer $isOpen={isOpen} $fullScreen={fullScreen}>
-              <SearchBarDropdown
-                toggleOpen={toggleOpen}
-                tokens={reducedTokens}
-                collections={reducedCollections}
-                queryText={debouncedSearchValue}
-                hasInput={debouncedSearchValue.length > 0}
-                isLoading={tokensAreLoading || collectionsAreLoading}
-              />
-            </SearchBarDropdownContainer>
-          )}
-        </SearchContainer>
-        {!isNavSearchInputVisible && (
-          <NavIcon onClick={toggleOpen} label={placeholderText}>
-            <SearchIcon>
-              <Search width="20px" height="20px" color={theme.neutral2} />
-            </SearchIcon>
-          </NavIcon>
-        )}
-      </Anchor>
-    </Trace>
+    <div>
+      {/* Your component content goes here */}
+    </div>
   )
 }

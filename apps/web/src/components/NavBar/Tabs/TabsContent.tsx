@@ -29,7 +29,9 @@ export const useTabsContent = (): TabsSection[] => {
   const forAggregatorEnabled = useFeatureFlag(FeatureFlags.ForAggregatorWeb)
   const { pathname } = useLocation()
   const theme = useTheme()
-  const areTabsVisible = useTabsVisible()
+  // const areTabsVisible = useTabsVisible()
+
+  useTabsVisible()
 
   return isLegacyNav
     ? [
@@ -86,34 +88,35 @@ export const useTabsContent = (): TabsSection[] => {
               : []),
           ],
         },
-        {
-          title: t('common.explore'),
-          href: '/explore',
-          isActive: pathname.startsWith('/explore') || pathname.startsWith('/nfts'),
-          items: [
-            { label: t('common.tokens'), quickKey: t(`quickKey.tokens`), href: '/explore/tokens', internal: true },
-            { label: t('common.pools'), quickKey: t(`quickKey.pools`), href: '/explore/pools', internal: true },
-            {
-              label: t('common.transactions'),
-              quickKey: t(`quickKey.transactions`),
-              href: '/explore/transactions',
-              internal: true,
-            },
-            { label: t('common.nfts'), quickKey: t(`quickKey.nfts`), href: '/nfts', internal: true },
-          ],
-        },
-        {
-          title: t('common.pool'),
-          href: '/pool',
-          isActive: pathname.startsWith('/pool'),
-        },
-        ...(!areTabsVisible
-          ? [
-              {
-                title: t('common.nfts'),
-                href: '/nfts',
-              },
-            ]
-          : []),
+        /*-------------------------- Reset Explore Tab---------------------*/
+        // {
+        //   title: t('common.explore'),
+        //   href: '/explore',
+        //   isActive: pathname.startsWith('/explore') || pathname.startsWith('/nfts'),
+        //   items: [
+        //     { label: t('common.tokens'), quickKey: t(`quickKey.tokens`), href: '/explore/tokens', internal: true },
+        //     { label: t('common.pools'), quickKey: t(`quickKey.pools`), href: '/explore/pools', internal: true },
+        //     {
+        //       label: t('common.transactions'),
+        //       quickKey: t(`quickKey.transactions`),
+        //       href: '/explore/transactions',
+        //       internal: true,
+        //     },
+        //     { label: t('common.nfts'), quickKey: t(`quickKey.nfts`), href: '/nfts', internal: true },
+        //   ],
+        // },
+        // {
+        //   title: t('common.pool'),
+        //   href: '/pool',
+        //   isActive: pathname.startsWith('/pool'),
+        // },
+        // ...(!areTabsVisible
+        //   ? [
+        //       {
+        //         title: t('common.nfts'),
+        //         href: '/nfts',
+        //       },
+        //     ]
+        //   : []),
       ]
 }
