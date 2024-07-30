@@ -90,9 +90,11 @@ export const ChainSelector = ({ leftAlign }: { leftAlign?: boolean }) => {
   const selectChain = useSelectChain()
   const [searchParams, setSearchParams] = useSearchParams()
 
+  const SUPPORTED_CHAINS = [UniverseChainId.Mainnet, UniverseChainId.ArbitrumOne, UniverseChainId.Bnb]
+
   const [supportedChains, unsupportedChains] = useMemo(() => {
     const { supported, unsupported } = ALL_CHAIN_IDS.filter((chain: number) => {
-      return isSupportedChain(chain) && (showTestnets || !TESTNET_CHAIN_IDS.includes(chain))
+      return isSupportedChain(chain) && (showTestnets || !TESTNET_CHAIN_IDS.includes(chain)) && SUPPORTED_CHAINS.includes(chain)
     })
       .sort((a, b) => getChainPriority(a) - getChainPriority(b))
       .reduce(
