@@ -10,7 +10,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Popover, Text } from 'ui/src'
 import { Hamburger } from 'ui/src/components/icons'
-import logo from './DeFiner_Labs_Logomark_dark.png'
+import logo from './logo.svg'
 
 const ArrowDown = styled(ArrowChangeDown)<{ $isActive: boolean }>`
   height: 100%;
@@ -61,17 +61,17 @@ export function CompanyMenu() {
     <Popover ref={popoverRef} placement="bottom" hoverable stayInFrame allowFlip onOpenChange={setIsOpen}>
       <Popover.Trigger>
         <Trigger>
-        <img src={logo} alt="Logo" width="48" height="48" onClick={handleLogoClick} />
+        <img src={logo} alt="Logo" width="80" height="80" onClick={handleLogoClick} />
           {isLargeScreen && (
             <Text variant="subheading1" color="$accent1" userSelect="none">
               DeFiner Labs
             </Text>
           )}
-          {(isSmallScreen || isTouchDevice) && <Hamburger size={22} color="$neutral2" cursor="pointer" ml="16px" />}
-          <ArrowDown $isActive={isOpen} width="12px" height="12px" />
+          {(isSmallScreen || isTouchDevice) && <Hamburger size={22} color="$neutral2" cursor="pointer" ml="24px" />}
+          {/* <ArrowDown $isActive={isOpen} width="12px" height="12px" /> */}
         </Trigger>
       </Popover.Trigger>
-      {isMobileDrawer ? <MobileMenuDrawer isOpen={isOpen} closeMenu={closeMenu} /> : <MenuDropdown close={closeMenu} />}
+      {/* {isMobileDrawer ? <MobileMenuDrawer isOpen={isOpen} closeMenu={closeMenu} /> : <MenuDropdown close={closeMenu} />} */}
     </Popover>
   )
 }
