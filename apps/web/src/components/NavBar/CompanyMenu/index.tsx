@@ -64,7 +64,7 @@ export function CompanyMenu() {
         <img src={logo} alt="Logo" width="80" height="80" onClick={handleLogoClick} />
           {isLargeScreen && (
             <Text variant="subheading1" color="$accent1" userSelect="none">
-              DeFiner Labs
+              
             </Text>
           )}
           {(isSmallScreen || isTouchDevice) && <Hamburger size={22} color="$neutral2" cursor="pointer" ml="24px" />}
