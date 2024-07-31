@@ -89,18 +89,18 @@ export default function WalletModal({ openSettings }: { openSettings: () => void
           <UniswapWalletOptions />
           <OtherWalletsDividerRow
             align="center"
-            padding="8px 0px"
+            padding="0px 0px"
             clickable={isUniExtensionAvailable}
             onClick={() => isUniExtensionAvailable && toggleShowOtherWallets()}
           >
-            <Line />
+            {/* <Line />
             <Row align="center" marginX={18}>
               <Text variant="body3" color="$neutral2" whiteSpace="nowrap">
                 <Trans i18nKey="wallet.other" />
               </Text>
               {isUniExtensionAvailable ? showOtherWallets ? <StyledExpandIcon /> : <StyledCollapsedIcon /> : null}
             </Row>
-            <Line />
+            <Line /> */}
           </OtherWalletsDividerRow>
         </>
       )}

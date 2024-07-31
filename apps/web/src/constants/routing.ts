@@ -82,10 +82,10 @@ export function buildCurrencyInfo(commonBase: Currency): CurrencyInfo {
  */
 export const COMMON_BASES: ChainCurrencyList = {
   [UniverseChainId.Mainnet]: [
+    USDT,
     nativeOnChain(UniverseChainId.Mainnet),
     DAI,
     USDC_MAINNET,
-    USDT,
     WBTC,
     WRAPPED_NATIVE_CURRENCY[UniverseChainId.Mainnet] as Token,
   ].map(buildCurrencyInfo),
@@ -98,11 +98,11 @@ export const COMMON_BASES: ChainCurrencyList = {
     WRAPPED_NATIVE_CURRENCY[UniverseChainId.Sepolia] as Token,
   ].map(buildCurrencyInfo),
   [UniverseChainId.ArbitrumOne]: [
+    USDT_ARBITRUM_ONE,
     nativeOnChain(UniverseChainId.ArbitrumOne),
     ARB,
     DAI_ARBITRUM_ONE,
     USDC_ARBITRUM,
-    USDT_ARBITRUM_ONE,
     WBTC_ARBITRUM_ONE,
     WRAPPED_NATIVE_CURRENCY[UniverseChainId.ArbitrumOne] as Token,
   ].map(buildCurrencyInfo),
@@ -167,10 +167,10 @@ export const COMMON_BASES: ChainCurrencyList = {
   ].map(buildCurrencyInfo),
 
   [UniverseChainId.Bnb]: [
+    USDT_BSC,
     nativeOnChain(UniverseChainId.Bnb),
     DAI_BSC,
     USDC_BSC,
-    USDT_BSC,
     ETH_BSC,
     BTC_BSC,
     BUSD_BSC,

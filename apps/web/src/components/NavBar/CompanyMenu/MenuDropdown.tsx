@@ -6,10 +6,11 @@ import { useTabsVisible } from 'components/NavBar/ScreenSizes'
 import { useTabsContent } from 'components/NavBar/Tabs/TabsContent'
 import { t } from 'i18next'
 import styled, { css } from 'lib/styled-components'
-import { Socials } from 'pages/Landing/sections/Footer'
+// import { Socials } from 'pages/Landing/sections/Footer'
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { ExternalLink, Separator, ThemedText } from 'theme/components'
+// import { ExternalLink, Separator, ThemedText } from 'theme/components'
+import { ExternalLink, ThemedText } from 'theme/components'
 
 const Container = styled.div`
   width: 295px;
@@ -82,6 +83,7 @@ export function MenuDropdown({ close }: { close?: () => void }) {
     })
   }, [tabs])
 
+/*------------------ Reset Download APP Button in the menu ---------------------*/
   return (
     <NavDropdown isOpen={false}>
       <Container data-testid="nav-more-menu">
@@ -95,9 +97,10 @@ export function MenuDropdown({ close }: { close?: () => void }) {
               closeMenu={close}
             />
           ))}
-          <Separator />
+          {<DownloadApp/>
+          /* <Separator />
           <DownloadApp onClick={close} />
-          <Socials iconSize="25px" />
+          <Socials iconSize="25px" /> */}
         </Column>
       </Container>
     </NavDropdown>

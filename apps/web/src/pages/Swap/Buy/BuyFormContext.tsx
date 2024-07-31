@@ -25,6 +25,7 @@ import {
 } from 'uniswap/src/features/fiatOnRamp/utils'
 import { UniverseChainId } from 'uniswap/src/types/chains'
 import { useAccount } from 'wagmi'
+import { USDT } from 'constants/tokens'
 
 class BuyFormError extends Error {
   constructor(public readonly message: string) {
@@ -59,12 +60,16 @@ type BuyFormContextType = {
   derivedBuyFormInfo: BuyInfo
 }
 
-export const ethCurrencyInfo = buildCurrencyInfo(nativeOnChain(UniverseChainId.Mainnet))
+// const account = useAccount();
+// const chainId = account.chainId ?? UniverseChainId.Mainnet;
+
+// TODO, change token with account.chainId
+export const ethCurrencyInfo = buildCurrencyInfo(USDT)
 const DEFAULT_BUY_FORM_STATE: BuyFormState = {
   inputAmount: '',
   quoteCurrency: {
     currencyInfo: ethCurrencyInfo,
-    meldCurrencyCode: 'ETH',
+    meldCurrencyCode: 'USDT',
   },
   selectedCountry: undefined,
   countryModalOpen: false,

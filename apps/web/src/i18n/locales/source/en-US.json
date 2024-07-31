@@ -82,7 +82,7 @@
   "common.approveSpend": "Approve {{symbol}} spending",
   "common.approving": "Approving",
   "common.automatic": "Auto",
-  "common.availableIn": "Uniswap available in: ",
+  "common.availableIn": "Interface available in: ",
   "common.availableOnIOSAndroid": "Available on iOS and Android",
   "common.availableOnIOSAndroidChrome": "Available on iOS, Android, and Chrome",
   "common.blocked.activities": "blocked activities",

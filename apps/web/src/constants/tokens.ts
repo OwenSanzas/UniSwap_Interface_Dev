@@ -242,7 +242,7 @@ export const CEUR_CELO_ALFAJORES = new Token(
 )
 
 export const USDC_BSC = new Token(UniverseChainId.Bnb, '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d', 18, 'USDC', 'USDC')
-export const USDT_BSC = new Token(UniverseChainId.Bnb, '0x55d398326f99059fF775485246999027B3197955', 18, 'USDT', 'USDT')
+export const USDT_BSC = new Token(UniverseChainId.Bnb, '0x55d398326f99059fF775485246999027B3197955', 18, 'USDT', 'Tether USD')
 export const ETH_BSC = new Token(
   UniverseChainId.Bnb,
   '0x2170Ed0880ac9A755fd29B2688956BD959F933F8',
@@ -597,5 +597,19 @@ export function nativeOnChain(chainId: number): NativeCurrency | Token {
   }
   return (cachedNativeCurrency[chainId] = nativeCurrency)
 }
+
+/*------------------- Reset Default Token ----------------------- */
+export const CHAIN_ID_TO_USDT_KEY = {
+  [UniverseChainId.Mainnet]: "USDT_Mainnet",
+  [UniverseChainId.ArbitrumOne]: "USDT_ArbitrumOne",
+  [UniverseChainId.Bnb]: "USDT_BNB",
+};
+
+
+export const USDT_ADDRESSES = {
+  "USDT_Mainnet": '0xdAC17F958D2ee523a2206206994597C13D831ec7',
+  "USDT_ArbitrumOne": '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9',
+  "USDT_BNB": '0x55d398326f99059fF775485246999027B3197955',
+};
 
 export const UNKNOWN_TOKEN_SYMBOL = 'UNKNOWN'

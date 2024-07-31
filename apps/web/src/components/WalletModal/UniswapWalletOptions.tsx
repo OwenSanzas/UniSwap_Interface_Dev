@@ -76,9 +76,10 @@ export function UniswapWalletOptions() {
           </OptionContainer>
         ) : // If the extension is not detected, show the option to download the app
         extensionIsLaunched ? (
-          <DownloadWalletOption />
+          // <DownloadWalletOption />
+          <></>
         ) : null}
-        <OptionContainer gap="md" onClick={() => connect({ connector: uniswapWalletConnectConnector })}>
+        {/* <OptionContainer gap="md" onClick={() => connect({ connector: uniswapWalletConnectConnector })}>
           <ScanQr size="$icon.40" minWidth={40} color="$accent1" backgroundColor="$accent2" borderRadius={8} p={7} />
           <Row gap="xs">
             <Column>
@@ -90,7 +91,7 @@ export function UniswapWalletOptions() {
               </Text>
             </Column>
           </Row>
-        </OptionContainer>
+        </OptionContainer> */}
       </Column>
     </Column>
   )

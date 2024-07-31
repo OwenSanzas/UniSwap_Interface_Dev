@@ -474,6 +474,8 @@ export function SwapForm({ disableTokenInputs = false, onCurrencyChange }: SwapF
 
   const inputCurrency = currencies[Field.INPUT] ?? undefined
 
+  console.log("inputCurrency", inputCurrency)
+
   const switchingChain = useAppSelector((state) => state.wallets.switchingChain)
   const targetChain = switchingChain ? switchingChain : undefined
   const switchingChainIsSupported = useIsSupportedChainId(targetChain)

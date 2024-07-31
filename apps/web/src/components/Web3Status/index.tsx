@@ -207,7 +207,7 @@ function Web3StatusInner() {
           ref={ref}
         >
           <StyledConnectButton tabIndex={-1} data-testid="navbar-connect-wallet">
-            <Trans i18nKey="common.connect.button" />
+            <Trans i18nKey="common.connectAWallet.button" />
           </StyledConnectButton>
         </Web3StatusConnectWrapper>
       </Trace>
