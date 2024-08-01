@@ -50,6 +50,10 @@ export const useTabsContent = (): TabsSection[] => {
       ]
     : [
         {
+          title: 'Home',
+          href: 'http://localhost:9000/home',
+        },
+        {
           title: t('common.trade'),
           href: '/swap',
           isActive: pathname.startsWith('/swap') || pathname.startsWith('/limit') || pathname.startsWith('/send'),
@@ -88,6 +92,21 @@ export const useTabsContent = (): TabsSection[] => {
               : []),
           ],
         },
+
+        {
+          title: 'Tracker',
+          href: 'http://localhost:9000/home/track-records',
+        },
+        {
+          title: 'Portfolio',
+          href: 'http://localhost:9000/home/portfolio',
+        },
+        // add more tabs here, navigate to localhost:9000/explore and localhost:9000/nfts
+        {
+          title: 'Monitor',
+          href: 'http://localhost:9000/home/monitor',
+        },
+        
         /*-------------------------- Reset Explore Tab---------------------*/
         // {
         //   title: t('common.explore'),
