@@ -1,13 +1,23 @@
 steps:
+  - name: 'node:18'
+    id: Install dependencies
+    entrypoint: 'yarn'
+    args: ['install']
+
+  - name: 'node:18'
+    id: Build project
+    entrypoint: 'yarn'
+    args: ['g:build']
+
 # Build the Docker image for the web service
   - name: 'gcr.io/cloud-builders/docker'
     id: Build Docker image (Web)
-    args: ['build', '-f', 'Dockerfile.web', '-t', 'gcr.io/max1-funding-arb/tradeapp-web-service', '.']
+    args: ['build', '-f', 'Dockerfile.web', '-t', 'gcr.io/$PROJECT_ID/tradeapp-web-service', '.']
 
   # Push the Docker image for the web service
   - name: 'gcr.io/cloud-builders/docker'
     id: Push Docker image (Web)
-    args: ['push', 'gcr.io/max1-funding-arb/tradeapp-web-service']
+    args: ['push', 'gcr.io/$PROJECT_ID/tradeapp-web-service']
 
   - name: 'gcr.io/cloud-builders/gcloud'
     id: Deploy to Cloud Run (Web)
@@ -24,6 +34,3 @@ steps:
 
 images:
   - 'gcr.io/$PROJECT_ID/tradeapp-web-service'
-
-options:
-  logging: CLOUD_LOGGING_ONLY
