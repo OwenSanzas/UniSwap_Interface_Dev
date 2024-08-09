@@ -20,7 +20,7 @@
     "turbo-ignore": "^1.11.3"
   },
   "engines": {
-    "node": "=18.12.1",
+    "node": "=16.19.1",
     "yarn": ">=3.2.3",
     "npm": "please-use-yarn"
   },
