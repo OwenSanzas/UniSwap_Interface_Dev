@@ -1,0 +1,14 @@
+# Use the official Node.js 18 image
+FROM node:18.12.1
+
+# Create and change to the app directory
+WORKDIR /usr/src/app
+
+# Copy the entire project, including node_modules from the Cloud Build step
+COPY . .
+
+# Expose the port the app runs on
+EXPOSE 8080
+
+# Start the app
+CMD ["yarn", "web", "start"]
