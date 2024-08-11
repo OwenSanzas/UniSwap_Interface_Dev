@@ -50,10 +50,6 @@ export const useTabsContent = (): TabsSection[] => {
       ]
     : [
         {
-          title: 'Home',
-          href: 'http://localhost:9000/home',
-        },
-        {
           title: t('common.trade'),
           href: '/swap',
           isActive: pathname.startsWith('/swap') || pathname.startsWith('/limit') || pathname.startsWith('/send'),
