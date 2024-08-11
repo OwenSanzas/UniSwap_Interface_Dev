@@ -66,8 +66,19 @@ export default function Landing() {
   }
 
   return (
-    <Trace logImpression page={InterfacePageName.LANDING_PAGE}>
-      <LandingV2 transition={isExitAnimationEnabled && transition} />
-    </Trace>
+    // <Trace logImpression page={InterfacePageName.LANDING_PAGE}>
+    //   <LandingV2 transition={isExitAnimationEnabled && transition} />
+    // </Trace>
+
+    <Navigate to={{ ...location, pathname: '/swap' }} replace />
+
+    /**
+     * TODO:
+     * As you can see, we changed the landing page from / to /swap
+     * 
+     * But at this time users don't know they don't have a connection with the wallet
+     * 
+     * You may need to use a pop-up to inform the user that they need to connect to the wallet
+     */
   )
 }
