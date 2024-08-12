@@ -39,14 +39,6 @@ export const useTabsContent = (): TabsSection[] => {
           title: t('common.swap'),
           href: '/swap',
         },
-        {
-          title: t('common.explore'),
-          href: '/explore',
-        },
-        {
-          title: t('common.nfts'),
-          href: '/nfts',
-        },
       ]
     : [
         {

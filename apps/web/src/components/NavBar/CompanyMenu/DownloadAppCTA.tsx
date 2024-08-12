@@ -11,7 +11,6 @@
 // import { ApplicationModal } from 'state/application/reducer'
 // import { ThemedText } from 'theme/components'
 // import { isWebAndroid, isWebIOS } from 'utilities/src/platform'
-// import { APP_DOWNLOAD_LINKS, openDownloadApp } from 'utils/openDownloadApp'
 
 // const DOWNLOAD_PADDING_X = 8
 // const HoverStyles = css`

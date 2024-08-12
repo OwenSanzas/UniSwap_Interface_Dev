@@ -1,8 +1,6 @@
 import IconButton from 'components/AccountDrawer/IconButton'
 import { useShowMoonpayText } from 'components/AccountDrawer/MiniPortfolio/hooks'
 import Column from 'components/Column'
-import { CollapsedIcon } from 'components/Icons/Collapse'
-import { ExpandIcon } from 'components/Icons/Expand'
 import { Settings } from 'components/Icons/Settings'
 import Row, { AutoRow } from 'components/Row'
 import ConnectionErrorView from 'components/WalletModal/ConnectionErrorView'
@@ -12,11 +10,10 @@ import { UniswapWalletOptions } from 'components/WalletModal/UniswapWalletOption
 import { useOrderedConnections } from 'components/WalletModal/useOrderedConnections'
 import { useIsUniExtensionAvailable, useUniswapWalletOptions } from 'hooks/useUniswapWalletOptions'
 import { Trans } from 'i18n'
-import styled, { css } from 'lib/styled-components'
+import styled from 'lib/styled-components'
 import { useReducer } from 'react'
 import { ClickableStyle, ThemedText } from 'theme/components'
 import { flexColumnNoWrap } from 'theme/styles'
-import { Text } from 'ui/src'
 
 const Wrapper = styled.div<{ isUniExtensionAvailable?: boolean }>`
   ${flexColumnNoWrap};
@@ -55,20 +52,12 @@ const Line = styled.div`
   background: ${({ theme }) => theme.surface3};
 `
 
-const OtherWalletIconStyles = css`
-  height: 20px;
-  width: 20px;
-  fill: ${({ theme }) => theme.neutral2};
-  flex-shrink: 0;
-`
-
-const StyledExpandIcon = styled(ExpandIcon)`
-  ${OtherWalletIconStyles}
-`
-
-const StyledCollapsedIcon = styled(CollapsedIcon)`
-  ${OtherWalletIconStyles}
-`
+// const OtherWalletIconStyles = css`
+//   height: 20px;
+//   width: 20px;
+//   fill: ${({ theme }) => theme.neutral2};
+//   flex-shrink: 0;
+// `
 
 export default function WalletModal({ openSettings }: { openSettings: () => void }) {
   const showMoonpayText = useShowMoonpayText()

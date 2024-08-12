@@ -349,7 +349,6 @@ export function useInitialCurrencyState(): {
   const multichainUXEnabled = useFeatureFlag(FeatureFlags.MultichainUX)
 
   const parsedQs = useParsedQueryString()
-  console.log("parsedQs", parsedQs)
   const parsedCurrencyState = useMemo(() => {
     return queryParametersToCurrencyState(parsedQs)
   }, [parsedQs])
@@ -362,7 +361,6 @@ export function useInitialCurrencyState(): {
 
   const { initialInputCurrencyAddress, initialChainId } = useMemo(() => {
     // Handle query params or disconnected state
-    console.log("parsed currency", parsedCurrencyState.inputCurrencyId)
     if (parsedCurrencyState.inputCurrencyId) {
       return {
         initialInputCurrencyAddress: parsedCurrencyState.inputCurrencyId,
@@ -379,8 +377,6 @@ export function useInitialCurrencyState(): {
       const usdtKey = CHAIN_ID_TO_USDT_KEY[supportedChainId as 1 | 42161 | 56] as keyof typeof USDT_ADDRESSES;
 
       const finalCurrencyAddress = usdtKey ? USDT_ADDRESSES[usdtKey] : USDT_ADDRESSES['USDT_Mainnet'];
-
-      console.log("IMPORTANT CHECK", finalCurrencyAddress, supportedChainId)
 
       return {
         initialInputCurrencyAddress: parsedCurrencyState.outputCurrencyId ? undefined : finalCurrencyAddress,
@@ -399,12 +395,10 @@ export function useInitialCurrencyState(): {
       ) {
         highestBalance = balance.denominatedValue.value
         highestBalanceNativeTokenAddress = balance?.token.address ?? USDT_ADDRESSES['USDT_Mainnet']
-        console.log("IMPORTANT CHECK", highestBalanceNativeTokenAddress, supportedChainId)
         highestBalanceChainId = supportedChainIdFromGQLChain(balance.token.chain) ?? UniverseChainId.Mainnet
       }
     })
 
-    console.log("final output", { initialInputCurrencyAddress: highestBalanceNativeTokenAddress, initialChainId: highestBalanceChainId })
     return { initialInputCurrencyAddress: highestBalanceNativeTokenAddress, initialChainId: highestBalanceChainId }
   }, [
     account.isConnected,

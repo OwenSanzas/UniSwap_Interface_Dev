@@ -1,6 +1,5 @@
 import { InterfaceElementName, InterfaceEventName } from '@uniswap/analytics-events'
 import MobileAppLogo from 'assets/svg/mobile-app-qr-logo.svg'
-import { DownloadButton } from 'components/AccountDrawer/DownloadButton'
 import Column, { AutoColumn } from 'components/Column'
 import Modal from 'components/Modal'
 import { RowBetween } from 'components/Row'
@@ -126,9 +125,6 @@ function InfoSection() {
           <Trans i18nKey="account.drawer.modal.body" />
         </ThemedText.BodySmall>
       </AutoColumn>
-      <Column>
-        <DownloadButton element={InterfaceElementName.UNISWAP_WALLET_MODAL_DOWNLOAD_BUTTON} />
-      </Column>
     </InfoSectionWrapper>
   )
 }
