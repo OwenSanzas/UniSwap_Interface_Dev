@@ -1,0 +1,29 @@
+steps:
+# Build the Docker image for the web service
+  - name: 'gcr.io/cloud-builders/docker'
+    id: Build Docker image (Web)
+    args: ['build', '-f', 'Dockerfile.web', '-t', 'gcr.io/max1-funding-arb/tradeapp-web-service', '.']
+
+  # Push the Docker image for the web service
+  - name: 'gcr.io/cloud-builders/docker'
+    id: Push Docker image (Web)
+    args: ['push', 'gcr.io/max1-funding-arb/tradeapp-web-service']
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: Deploy to Cloud Run (Web)
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud run deploy tradeapp-web-service \
+          --image=gcr.io/max1-funding-arb/tradeapp-web-service \
+          --platform=managed \
+          --region=us-central1 \
+          --allow-unauthenticated \
+          --port=8080
+
+images:
+  - 'gcr.io/$PROJECT_ID/tradeapp-web-service'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
