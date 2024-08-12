@@ -51,7 +51,7 @@ export const Header = memo(function Header() {
         $hide={!isExplorePage && !isLegacyNav && scrollDirection === ScrollDirection.DOWN}
         $transparent={isHeaderTransparent}
       >
-        <Navbar blur={isHeaderTransparent} />
+        <Navbar/>
       </NavOnScroll>
     </AppHeader>
   )
