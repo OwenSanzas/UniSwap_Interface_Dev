@@ -44,9 +44,6 @@ export default function App() {
   // redirect address to landing pages until implemented
   const shouldRedirectToAppInstall = pathname?.startsWith('/address/')
   useLayoutEffect(() => {
-    if (shouldRedirectToAppInstall) {
-      
-    }
   }, [shouldRedirectToAppInstall])
 
   if (shouldRedirectToAppInstall) {
