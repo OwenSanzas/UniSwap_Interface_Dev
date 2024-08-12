@@ -1,7 +1,6 @@
 import UNIWALLET_ICON from 'assets/wallets/uniswap-wallet-icon.png'
 import Column from 'components/Column'
 import Row from 'components/Row'
-import { DownloadWalletOption } from 'components/WalletModal/DownloadWalletOption'
 import { useConnectorWithId } from 'components/WalletModal/useOrderedConnections'
 import { CONNECTION } from 'components/Web3Provider/constants'
 import { useConnect } from 'hooks/useConnect'
@@ -10,7 +9,6 @@ import styled from 'lib/styled-components'
 import { BREAKPOINTS } from 'theme'
 import { Z_INDEX } from 'theme/zIndex'
 import { Text } from 'ui/src'
-import { ScanQr } from 'ui/src/components/icons'
 import { FeatureFlags } from 'uniswap/src/features/gating/flags'
 import { useFeatureFlag } from 'uniswap/src/features/gating/hooks'
 
@@ -46,9 +44,9 @@ const TagContainer = styled.div`
 
 export function UniswapWalletOptions() {
   const uniswapExtensionConnector = useConnectorWithId(CONNECTION.UNISWAP_EXTENSION_RDNS)
-  const uniswapWalletConnectConnector = useConnectorWithId(CONNECTION.UNISWAP_WALLET_CONNECT_CONNECTOR_ID, {
-    shouldThrow: true,
-  })
+  // const uniswapWalletConnectConnector = useConnectorWithId(CONNECTION.UNISWAP_WALLET_CONNECT_CONNECTOR_ID, {
+  //   shouldThrow: true,
+  // })
   const extensionIsLaunched = useFeatureFlag(FeatureFlags.ExtensionLaunch)
 
   const { connect } = useConnect()

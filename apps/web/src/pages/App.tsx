@@ -14,7 +14,6 @@ import { shouldDisableNFTRoutesAtom } from 'state/application/atoms'
 import DarkModeQueryParamReader from 'theme/components/DarkModeQueryParamReader'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { isPathBlocked } from 'utils/blockedPaths'
-import { MICROSITE_LINK } from 'utils/openDownloadApp'
 import { getCurrentPageFromLocation } from 'utils/urlRoutes'
 
 export default function App() {
@@ -45,9 +44,6 @@ export default function App() {
   // redirect address to landing pages until implemented
   const shouldRedirectToAppInstall = pathname?.startsWith('/address/')
   useLayoutEffect(() => {
-    if (shouldRedirectToAppInstall) {
-      window.location.href = MICROSITE_LINK
-    }
   }, [shouldRedirectToAppInstall])
 
   if (shouldRedirectToAppInstall) {

@@ -18,45 +18,5 @@ export interface MenuSection {
 
 /*------------------ Reset Menu -----------------*/
 export const useMenuContent = (): MenuSection[] => {
-  const { t } = useTranslation()
-  const isLegacyNav = !useFeatureFlag(FeatureFlags.NavRefresh)
-
-  const legacyAppLinks = {
-    title: t('common.app'),
-    key: 'App',
-    items: [
-      { label: t('common.pool'), href: '/pool', internal: true, overflow: true },
-      { label: t('common.vote'), href: 'https://vote.uniswapfoundation.org/' },
-      { label: t('common.analytics'), href: '/explore', internal: true },
-    ],
-  }
-  const companyLinks = {
-    title: t('common.company'),
-    key: 'Company',
-    items: [
-      { label: t('common.careers'), href: 'https://definer.freshteam.com/jobs' },
-      { label: t('common.blog'), href: 'https://definerlabs.com/' },
-    ],
-  }
-  // const protocolLinks = {
-  //   title: t('common.protocol'),
-  //   key: 'Protocol',
-  //   items: [
-  //     ...(!isLegacyNav ? [{ label: t('common.vote'), href: 'https://vote.uniswapfoundation.org/' }] : []),
-  //     { label: t('common.governance'), href: 'https://uniswap.org/governance' },
-  //     { label: t('common.developers'), href: 'https://uniswap.org/developers' },
-  //   ],
-  // }
-  const helpLinks = {
-    title: t('common.needHelp'),
-    key: 'Help',
-    items: [
-      // { label: t('common.helpCenter'), href: 'https://support.uniswap.org/hc/en-us' },
-      // { label: t('common.contactUs.button'), href: 'https://support.uniswap.org/hc/en-us/requests/new' },
-      { label: t('Docs'), href: 'https://docs.definer.org/' },
-    ],
-  }
-
-  // return [...(isLegacyNav ? [legacyAppLinks] : []), companyLinks, protocolLinks, helpLinks]
-  return [...(isLegacyNav ? [legacyAppLinks] : []), companyLinks, helpLinks]
+  return []
 }
