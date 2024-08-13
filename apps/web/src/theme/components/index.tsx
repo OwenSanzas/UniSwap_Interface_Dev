@@ -13,7 +13,7 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import { AlertTriangle, ArrowLeft, CheckCircle, Copy, Icon, X } from 'react-feather'
+import { AlertTriangle, CheckCircle, Copy, Icon, X } from 'react-feather'
 import { Link } from 'react-router-dom'
 import { Z_INDEX } from 'theme/zIndex'
 import { anonymizeLink } from 'utils/anonymizeLink'
@@ -129,10 +129,6 @@ const StyledLink = styled.a`
   ${LinkStyle}
 `
 
-export const StyledRouterLink = styled(Link)`
-  ${ClickableStyle}
-  ${LinkStyle}
-`
 
 /**
  * Outbound link that handles firing google analytics events
@@ -348,18 +344,6 @@ export const SpinnerSVG = styled.svg`
   ${SpinnerCss}
 `
 
-const BackArrowIcon = styled(ArrowLeft)`
-  color: ${({ theme }) => theme.neutral1};
-`
-
-export function BackArrowLink({ to }: { to: string }) {
-  return (
-    <StyledInternalLink to={to}>
-      <BackArrowIcon />
-    </StyledInternalLink>
-  )
-}
-
 export const CustomLightSpinner = styled(Spinner)<{ size: string }>`
   height: ${({ size }) => size};
   width: ${({ size }) => size};
@@ -367,12 +351,6 @@ export const CustomLightSpinner = styled(Spinner)<{ size: string }>`
 
 export const HideSmall = styled.span`
   ${({ theme }) => theme.deprecated_mediaWidth.deprecated_upToSmall`
-    display: none;
-  `};
-`
-
-export const HideExtraSmall = styled.span`
-  ${({ theme }) => theme.deprecated_mediaWidth.deprecated_upToExtraSmall`
     display: none;
   `};
 `

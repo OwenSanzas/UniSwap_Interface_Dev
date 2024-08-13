@@ -3,7 +3,6 @@ import { useAtom } from 'jotai'
 import { ReactNode, lazy, useMemo } from 'react'
 import { Navigate, matchPath, useLocation } from 'react-router-dom'
 import { shouldDisableNFTRoutesAtom } from 'state/application/atoms'
-import { SpinnerSVG } from 'theme/components'
 import { isBrowserRouterEnabled } from 'utils/env'
 // High-traffic pages (index and /swap) should not be lazy-loaded.
 import Swap from 'pages/Swap'
@@ -12,18 +11,6 @@ const NotFound = lazy(() => import('pages/NotFound'))
 
 // this is the same svg defined in assets/images/blue-loader.svg
 // it is defined here because the remote asset may not have had time to load when this file is executing
-const LazyLoadSpinner = () => (
-  <SpinnerSVG width="94" height="94" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M92 47C92 22.1472 71.8528 2 47 2C22.1472 2 2 22.1472 2 47C2 71.8528 22.1472 92 47 92"
-      stroke="#2172E5"
-      strokeWidth="3"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </SpinnerSVG>
-)
-
 interface RouterConfig {
   browserRouterEnabled?: boolean
   hash?: string
@@ -90,7 +77,7 @@ export const routes: RouteDefinition[] = [
     path: '/',
     getTitle: () => StaticTitlesAndDescriptions.UniswapTitle,
     getDescription: () => StaticTitlesAndDescriptions.SwapDescription,
-    getElement: (args) => {
+    getElement: () => {
       return <Navigate to="/swap"/>
     },
   }),
