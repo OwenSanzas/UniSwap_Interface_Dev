@@ -1,6 +1,5 @@
 # Use the official Node.js 18 image
-ARG PLATFORM
-FROM --platform=$PLATFORM node:18.12.1
+FROM node:18.12.1
 
 RUN yarn set version 3.2.3
 
