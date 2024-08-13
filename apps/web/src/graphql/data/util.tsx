@@ -16,7 +16,6 @@ import {
 import { NATIVE_CHAIN_ID, WRAPPED_NATIVE_CURRENCY, nativeOnChain } from 'constants/tokens'
 import { DefaultTheme } from 'lib/styled-components'
 import ms from 'ms'
-import { ExploreTab } from 'pages/Explore'
 import { useEffect } from 'react'
 import { ThemeColors } from 'theme/colors'
 import { UNIVERSE_CHAIN_INFO } from 'uniswap/src/constants/chains'
@@ -161,9 +160,8 @@ export function isBackendSupportedChain(chain: Chain): chain is InterfaceGqlChai
   return (BACKEND_SUPPORTED_CHAINS as ReadonlyArray<Chain>).includes(chain)
 }
 
-export function getTokenExploreURL({ tab, chain }: { tab: ExploreTab; chain: Chain }) {
-  const chainName = chain.toLowerCase()
-  return `/explore/${tab}/${chainName}`
+export function getTokenExploreURL() {
+  return `/tokens`
 }
 
 export function getTokenDetailsURL({

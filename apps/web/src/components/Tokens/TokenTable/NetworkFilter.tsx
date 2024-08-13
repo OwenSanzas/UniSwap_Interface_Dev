@@ -11,8 +11,6 @@ import {
 import { getSupportedGraphQlChain, supportedChainIdFromGQLChain } from 'graphql/data/util'
 import { Trans } from 'i18n'
 import styled, { css, useTheme } from 'lib/styled-components'
-import { ExploreTab } from 'pages/Explore'
-import { useExploreParams } from 'pages/Explore/redirects'
 import { useReducer } from 'react'
 import { Check } from 'react-feather'
 import { useNavigate } from 'react-router-dom'
@@ -53,9 +51,8 @@ export default function NetworkFilter() {
   const isSupportedChainCallaback = useIsSupportedChainIdCallback()
   const isMultichainExploreEnabled = useFeatureFlag(FeatureFlags.MultichainExplore)
 
-  const exploreParams = useExploreParams()
   const currentChain = getSupportedGraphQlChain(useChainFromUrlParam(), { fallbackToEthereum: true })
-  const tab = exploreParams.tab
+  const tab = 1
 
   return (
     <div>
@@ -64,7 +61,7 @@ export default function NetworkFilter() {
         toggleOpen={toggleMenu}
         menuLabel={
           <NetworkLabel>
-            {!exploreParams.chainName && isMultichainExploreEnabled ? (
+            { isMultichainExploreEnabled ? (
               <AllNetworksIcon />
             ) : (
               <ChainLogo chainId={currentChain.id} size={20} testId="tokens-network-filter-selected" />
@@ -78,14 +75,14 @@ export default function NetworkFilter() {
                 key="All networks"
                 data-testid="tokens-network-filter-option-all-networks"
                 onClick={() => {
-                  navigate(`/explore/${tab ?? ExploreTab.Tokens}`)
+                  navigate(`/explore/`)
                   toggleMenu()
                 }}
               >
                 <NetworkLabel>
                   <AllNetworksIcon /> <Trans>All networks</Trans>
                 </NetworkLabel>
-                {!exploreParams.chainName && <Check size={16} color={theme.accent1} />}
+                {<Check size={16} color={theme.accent1} />}
               </InternalMenuItem>
             )}
             {BACKEND_SUPPORTED_CHAINS.map((network) => {
@@ -97,14 +94,14 @@ export default function NetworkFilter() {
                   key={network}
                   data-testid={`tokens-network-filter-option-${network.toLowerCase()}`}
                   onClick={() => {
-                    navigate(`/explore/${tab ?? ExploreTab.Tokens}/${network.toLowerCase()}`)
+                    navigate(`/explore/`)
                     toggleMenu()
                   }}
                 >
                   <NetworkLabel>
                     <ChainLogo chainId={chainId} size={20} /> {chainInfo?.label}
                   </NetworkLabel>
-                  {network === currentChain.backendChain.chain && exploreParams.chainName && (
+                  {network === currentChain.backendChain.chain && (
                     <Check size={16} color={theme.accent1} />
                   )}
                 </InternalMenuItem>
