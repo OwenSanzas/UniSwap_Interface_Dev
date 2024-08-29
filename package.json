@@ -22,7 +22,6 @@
   "engines": {
     "node": "=18.12.1",
     "yarn": ">=3.2.3",
-    "npm": "please-use-yarn"
   },
   "manypkg": {
     "ignoredRules": [
